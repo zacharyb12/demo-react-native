@@ -6,9 +6,9 @@ export default function IntroReactNative() {
         const [password, setPassword] = useState('');
         const [isEnabled, setIsEnabled] = useState(false);
     
-        useEffect(()=> {
-          // alert(`Nom: ${name}\nMot de passe: ${password}\nNotifications: ${isEnabled ? 'Activées' : 'Désactivées'}`);
-        },[isEnabled]);
+    function submitValue(){
+        alert(`Nom: ${name}\nMot de passe: ${password}\nNotifications: ${isEnabled ? 'Activées' : 'Désactivées'}`);
+    }
     
     return (
     <SafeAreaView>
@@ -50,6 +50,11 @@ export default function IntroReactNative() {
       secureTextEntry={true}
       style={styles.input}
       />
+              <Button
+        title="cliquez"
+        onPress={submitValue}
+        />
+      
       </View>
       {/*----------------------------------------------*/}
       <View style={styles.card}>
