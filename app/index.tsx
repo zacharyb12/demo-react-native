@@ -1,4 +1,4 @@
-import { Button, ScrollView } from "react-native";
+import { Button, ScrollView ,View} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import IntroReactNative from "./pages/introReactNative";
 import { useState } from "react";
@@ -13,8 +13,10 @@ const toggleVisibility = () => {
   return (
     <SafeAreaView>
       <ScrollView>
+        <View>
         <Button title="afficher/cacher" onPress={toggleVisibility}></Button>
        {isVisible ? (<IntroReactNative />) : null}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
