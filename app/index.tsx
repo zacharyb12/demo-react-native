@@ -1,39 +1,18 @@
-import {ScrollView ,View} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useState } from "react";
-import ComposantDemo from "./pages/composantsDemo";
-import { Product } from "./models/product.model";
+
+import DemoList from "./pages/E.demoList";
+
 
 export default function Index() {
-  const [productState , setProductState ] = useState<Product>({
-    id : "p2",
-    name : "Product 2",
-    price : 29
-  });
+ 
 
   return (
     <SafeAreaView>
 
-      <ScrollView>
+      {/* ici il suffit d'ajouter un composant pour le voir apparaitre sur notre page principale */}
 
-        <View>
 
-          <View>
-            {/* Communication Parent Enfant */}
-            {/* <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1, margin: 10, padding: 10}}
-              placeholder="Type your message here"
-              onChangeText={(text) => setMessageParent (text)}
-              value={messageParent}
-            /> */}
-          </View>
-
-{/* Ici le composant enfant recupere une valeur à afficher et une fonction qui permet de modifier cette valeur depuis la fonction du parent */}
-            <ComposantDemo product={productState} setProduct={setProductState}/>
-
-        </View>
-
-      </ScrollView>
+      <DemoList />
 
     </SafeAreaView>
   );
