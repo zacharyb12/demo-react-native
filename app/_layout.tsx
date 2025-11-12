@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CompteurProvider } from "../app/Context/CompteurContext";
+import { TimerProvider } from "../app/Context/timerContext";
 import Navbar from "./components/navbar";
 
 export default function RootLayout() {
@@ -9,7 +10,10 @@ export default function RootLayout() {
     
     <SafeAreaView style={{flex:1}}>
 
+      <TimerProvider>
       <Navbar />
+      </TimerProvider>
+      
       {/*Ici le provider rend accessible les éléments qui sont partagés*/}
       <CompteurProvider>
 
