@@ -21,7 +21,7 @@ function TodoList(){
             <Pressable
             style={{backgroundColor:"lightgrey",padding:10,marginTop:10}} 
 
-            onPress={() => router.push(`./todoDetails?id=${id}`)}>
+            onPress={() => router.push(`./todoDetails/${id}`)}>
             
             
                 <Text>details2</Text>
