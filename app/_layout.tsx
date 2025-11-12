@@ -1,7 +1,7 @@
 import { Stack } from "expo-router";
-import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CompteurProvider } from "../app/Context/CompteurContext";
+import Navbar from "./components/navbar";
 
 export default function RootLayout() {
   // SafeAreaView englobe toute la page
@@ -9,7 +9,7 @@ export default function RootLayout() {
     
     <SafeAreaView style={{flex:1}}>
 
-      <Text>Navbar</Text>
+      <Navbar />
       {/*Ici le provider rend accessible les éléments qui sont partagés*/}
       <CompteurProvider>
 
