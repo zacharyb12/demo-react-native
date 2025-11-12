@@ -1,5 +1,5 @@
-import { Text,Button } from "react-native";
 import { useState } from "react";
+import { Button, Text } from "react-native";
 
 
 function ConditionnelPage() {
@@ -14,6 +14,9 @@ function ConditionnelPage() {
         
         {/* Ici une condition ternaire qui affiche le composant ou null */}
         {isVisible ? <Text>Contenu conditionnel affiché</Text> : null}
+
+        {/* afficher sur base d'une condition */}
+        {isVisible && <Text>Autre contenu conditionnel affiché</Text>}
         </>
     )
 }

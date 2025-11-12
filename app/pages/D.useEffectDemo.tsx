@@ -1,9 +1,9 @@
-import { Text, TextInput,Button,View } from "react-native";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
+import { Button, Text, TextInput, View } from "react-native";
 
 function UseEffectDemo() {
     // ici un hook pour afficher ou cacher le composant qui utilise useEffect
-    const [showDemoEffect, setShowDemoEffect] = useState(true);
+    const [showDemoEffect, setShowDemoEffect] = useState(false);
 
     return (
         <>

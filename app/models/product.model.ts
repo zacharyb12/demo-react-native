@@ -21,3 +21,5 @@ export class ProductClass {
         console.log(`Product: ${this.name} (ID: ${this.id}) costs $${this.price}`);
     }
 }
+
+export default Product;

@@ -1,20 +1,20 @@
-import { SafeAreaView } from "react-native-safe-area-context";
+import DemoContext from "./pages/F.demoContext";
 
-import DemoList from "./pages/E.demoList";
 
 
 export default function Index() {
  
 
+  // ici il suffit d'ajouter un composant pour le voir apparaitre sur notre page principale
   return (
-    <SafeAreaView>
+    <>
 
-      {/* ici il suffit d'ajouter un composant pour le voir apparaitre sur notre page principale */}
+    <DemoContext />
 
 
-      <DemoList />
+    </>
 
-    </SafeAreaView>
+
   );
 }
 

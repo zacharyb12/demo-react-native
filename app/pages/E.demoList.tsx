@@ -1,7 +1,7 @@
-import {Text,FlatList} from 'react-native';
-import ComposantDemo from './B.composantsDemo';
-import { Product } from '../models/product.model';
 import { useState } from 'react';
+import { FlatList, Text } from 'react-native';
+import CardProduct from '../components/cardProduct';
+import { Product } from '../models/product.model';
 
 function DemoList(){
 const [list , setList] = useState<Product[]>(
@@ -53,7 +53,7 @@ return (
     <FlatList
     style={{width : '90%',backgroundColor : '#000000ff'}}
     data={list}
-    renderItem={({item}) => <ComposantDemo productParams={item} setProductParams={setProduct} />}
+    renderItem={({item}) => <CardProduct productParams={item} setProductParams={setProduct} />}
     showsVerticalScrollIndicator={false}
     keyExtractor={item => item.id}
     />
