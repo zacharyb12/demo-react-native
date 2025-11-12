@@ -15,8 +15,12 @@ function UserAddForm({user,setUser} : {user : UserAdd  , setUser : React.Dispatc
             setError("Le nom doit faire au moins 3 caractères");
             return true;
         }
-    
-        if(field === "nom" && value.length > 3){
+        else  
+        if(field === "nom" && value.length > 13){
+            setError("le nom doit faire moins de 13 caractères");
+        }
+        else{
+            updateForm("nom", value);
             setError("");
         }
         return false;

@@ -12,19 +12,19 @@ export default function RootLayout() {
 
       <TimerProvider>
       <Navbar />
-      </TimerProvider>
       
       {/*Ici le provider rend accessible les éléments qui sont partagés*/}
-      <CompteurProvider>
 
+      <CompteurProvider>
       {/* stack devient l'enfant donc tout ce qu'il affiche peut recuperer les éléments */}
         <Stack 
-        // screenOptions={{
-          //   headerShown : false
-          // }}
-          />
-
+        screenOptions={{
+          headerShown : false
+        }}
+        />
       </CompteurProvider>
+
+        </TimerProvider>
     </SafeAreaView>
 );
 }
