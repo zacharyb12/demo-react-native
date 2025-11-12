@@ -3,12 +3,17 @@ import { Pressable, Text } from "react-native";
 import { useCounter } from "../hooks/useCounter";
 
 function DemoContext(){
+    // utilisation sans le hook personnalisé
+    // const {compteur,increment,decrement,reset} = useContext(CompteurContext);
+
+    // utilisation avec le hook personnalisé plus leger
     const {compteur,increment,decrement,reset} = useCounter();
 
     return(
         <>
         <Text>Demo Context Page</Text>
 
+        {/*affichage du compteur et des actions disponibles*/}
         <Text>{compteur}</Text>
 
         <Pressable 
