@@ -1,10 +1,15 @@
 import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import { useTimer } from "../hooks/useTimer";
+import { useAuth } from "../hooks/useAuth";
+import LoginForm from "./loginForm";
 
 
 function Navbar(){
+    // authentication
+    const {user , logout ,isAuthenticated} = useAuth();
 
+    // Timer --------------------------------
     const {time} = useTimer();
 
     function getSeconds(){
@@ -13,7 +18,7 @@ function Navbar(){
         }
         return time.getSeconds();
     }
-
+    // ---------------------------------------
     return(
         <>
         <View>
@@ -36,6 +41,19 @@ function Navbar(){
         </View>
         <View>
             <Text>{time.getHours()} : {time.getMinutes()} : {getSeconds()}</Text>
+        </View>
+        <View>
+            {isAuthenticated && user ? (
+                <>
+                    <Text>Connecté en tant que : {user.username}</Text>
+                    <Pressable onPress={logout}>
+                        <Text>Se déconnecter</Text>
+                    </Pressable>
+                </>
+            ) :  (
+                // loginForm
+                <LoginForm/>
+            )}
         </View>
 
         </>
