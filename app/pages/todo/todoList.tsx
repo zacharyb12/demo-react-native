@@ -2,7 +2,7 @@ import { router } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 
 function TodoList(){
-    const id = 5;
+    const id = 1;
 
 
     return(
@@ -17,6 +17,14 @@ function TodoList(){
             
             
                 <Text>details</Text>
+            </Pressable>
+            <Pressable
+            style={{backgroundColor:"lightgrey",padding:10,marginTop:10}} 
+
+            onPress={() => router.push(`./todoDetails2/${id}`)}>
+            
+            
+                <Text>details2</Text>
             </Pressable>
             <Pressable
             style={{backgroundColor:"lightgrey",padding:10,marginTop:10}} 
