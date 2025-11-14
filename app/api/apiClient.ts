@@ -1,15 +1,13 @@
 // ici on va gérer la validité du token ,
 // l'interception des requêtes et réponses
 
-import {jwtDecode} from 'jwt-decode';
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { router } from 'expo-router';
-import { response } from 'express';
+import {jwtDecode} from 'jwt-decode'; // doit etre installé : npm install jwt-decode
+import axios from 'axios'; // doit etre installé : npm install axios
+import AsyncStorage from '@react-native-async-storage/async-storage'; // doit etre installé : npm install @react-native-async-storage/async-storage
+import { router } from 'expo-router'; // disponible avec expo-router
 
 
 // verifier la validité du token
-// installer jwt-decode : npm install jwt-decode
 const isTokenValid = (token : string) : boolean =>{
 
     if(!token) {
@@ -30,7 +28,7 @@ const isTokenValid = (token : string) : boolean =>{
 
 }
 
-// nettoyer le token du AsyncStorage : npm install @react-native-async-storage/async-storage
+// nettoyer le token du AsyncStorage 
 const cleanToken = async () => {
     await AsyncStorage.removeItem('token');
     await AsyncStorage.removeItem('user');
@@ -39,8 +37,9 @@ const cleanToken = async () => {
 
 // configuration Axios ( qui nous donne accès a l'intercepteur)
 const apiClient = axios.create({
-    // adresse ip de votre machine
+    // adresse ip de votre machine pour l'execution sur un vrai appareil
     // baseURL : 'http://192.168.0.194:8080/api',
+    // pour l'émulateur android
     baseURL : 'http://10.0.2.2:8080/api',
     headers : {
         'Content-Type' : 'application/json'
@@ -48,7 +47,7 @@ const apiClient = axios.create({
 })
 
 
-// Intercepteur de requêtes
+// Intercepteur de requêtes sortantes ajoute le token au header Authorization
 apiClient.interceptors.request.use(
     async (request) => {
         const token = await AsyncStorage.getItem('token');
@@ -72,7 +71,7 @@ apiClient.interceptors.request.use(
     }
 )
 
-// Intercepteur de réponses
+// Intercepteur de réponses entrantes
 apiClient.interceptors.response.use(
     (response) => response ,
 

@@ -3,6 +3,7 @@ import { authService } from "../services/authService";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserContext } from "../models/userContext.model";
 
+// définir le type du contexte
 interface AuthContextType {
     user : UserContext | null;
     login : (email : string, password : string) => Promise<void>;
@@ -12,7 +13,7 @@ interface AuthContextType {
     error : string | null;
     isAuthenticated : boolean;
 }
-
+// définir le type des props du provider
 interface AuthProviderProps {
     children : ReactNode;
 }
