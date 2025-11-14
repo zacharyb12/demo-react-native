@@ -3,10 +3,15 @@ import { useAuth } from "../hooks/useAuth";
 import { TextInput, Button } from "react-native";
 
 function LoginForm(){
+
+    // valeurs des champs de saisie
     const [email , setEmail] = useState('');
     const [password , setPassword] = useState('');
+
+    // obtenir la fonction de connexion depuis le contexte d'authentification
     const {login} = useAuth();
 
+    // gérer la soumission du formulaire de connexion
     const handleLogin = async () => {
         try {
             await login(email,password);

@@ -6,7 +6,7 @@ import LoginForm from "./loginForm";
 
 
 function Navbar(){
-    // authentication
+    // authentification  récupérer depuis le hook useAuth ( qui appel le contexte)
     const {user , logout ,isAuthenticated} = useAuth();
 
     // Timer --------------------------------

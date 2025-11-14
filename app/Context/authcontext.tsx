@@ -23,7 +23,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Provider pour fournir les valeurs aux composants enfants
 const AuthProvider = ({children} : AuthProviderProps) => {
-
+// états pour gérer l'utilisateur, le chargement et les erreurs
     const [user , setUser] = useState<UserContext | null>(null);
     const [isLoading , setIsLoading] = useState<boolean>(false);
     const [error , setError] = useState<string | null>(null);
@@ -32,6 +32,7 @@ const AuthProvider = ({children} : AuthProviderProps) => {
 
 useEffect(() => {
 
+    // fonction pour charger les données utilisateur depuis le stockage asynchrone
     const loadDataUser = async () => {
         setIsLoading(true);
         try {
@@ -57,7 +58,7 @@ useEffect(() => {
     // emitter
 },[])
 
-
+// fonction de connexion disponible dans le contexte
 const login = async (email : string , password : string) => {
     setIsLoading(true);
     setError(null);
@@ -75,6 +76,8 @@ const login = async (email : string , password : string) => {
     }
 };
 
+
+// fonction d'inscription disponible dans le contexte
 const register = async (username : string , email : string , password : string) => {
     setIsLoading(true);
     setError(null);
@@ -92,6 +95,7 @@ const register = async (username : string , email : string , password : string) 
     }
 }
 
+// fonction de déconnexion disponible dans le contexte
 const logout = async () => {
     setIsLoading(true);
     setError(null);
