@@ -11,7 +11,6 @@ export default function RootLayout() {
     <SafeAreaView style={{flex:1}}>
 
       <TimerProvider>
-      <Navbar />
       
       {/*Ici le provider rend accessible les éléments qui sont partagés*/}
 
@@ -22,6 +21,7 @@ export default function RootLayout() {
           headerShown : false
         }}
         />
+        <Navbar />
       </CompteurProvider>
 
         </TimerProvider>
