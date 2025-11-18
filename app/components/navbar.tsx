@@ -1,10 +1,15 @@
 import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 import { useTimer } from "../hooks/useTimer";
+import { useAuth } from "../hooks/useAuth";
+import LoginForm from "./loginForm";
 
 
 function Navbar(){
+    // authentification  récupérer depuis le hook useAuth ( qui appel le contexte)
+    const {user , logout ,isAuthenticated} = useAuth();
 
+    // Timer --------------------------------
     const {time} = useTimer();
 
     function getSeconds(){
@@ -12,20 +17,6 @@ function Navbar(){
             return '0' + time.getSeconds();
         }
         return time.getSeconds();
-    }
-
-    function getMinutes(){
-        if(time.getMinutes() < 10){
-            return '0' + time.getMinutes();
-        }
-        return time.getMinutes();
-    }
-
-    function getHours(){
-        if(time.getHours() < 10){
-            return '0' + time.getHours();
-        }
-        return time.getHours();
     }
 
     return(
@@ -54,6 +45,19 @@ function Navbar(){
         </View>
         <View style={styles.timeContainer}>
             <Text>{getHours()} : {getMinutes()} : {getSeconds()}</Text>
+        </View>
+        <View>
+            {isAuthenticated && user ? (
+                <>
+                    <Text>Connecté en tant que : {user.username}</Text>
+                    <Pressable onPress={logout}>
+                        <Text>Se déconnecter</Text>
+                    </Pressable>
+                </>
+            ) :  (
+                // loginForm
+                <LoginForm/>
+            )}
         </View>
 
         </>
