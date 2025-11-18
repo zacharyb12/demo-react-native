@@ -19,6 +19,20 @@ function Navbar(){
         return time.getSeconds();
     }
 
+        function getMinutes(){
+        if(time.getMinutes() < 10){
+            return '0' + time.getMinutes();
+        }
+        return time.getMinutes();
+    }
+
+        function getHours(){
+        if(time.getHours() < 10){
+            return '0' + time.getHours();
+        }
+        return time.getHours();
+    }
+
     return(
         <>
         <View style={styles.navbarContainer}>

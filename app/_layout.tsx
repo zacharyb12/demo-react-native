@@ -11,8 +11,6 @@ export default function RootLayout() {
     
     <SafeAreaView style={{flex:1}}>
 
-
-
       <TimerProvider>
       <AuthProvider>
       
@@ -29,7 +27,9 @@ export default function RootLayout() {
         />
       </CompteurProvider>
 
+        </AuthProvider>
         </TimerProvider>
+
     </SafeAreaView>
 );
 }
